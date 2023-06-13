@@ -8,7 +8,7 @@ const DestinyLogin = () => {
     const clientId = process.env.REACT_APP_CLIENT_ID;
     const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
     const redirectUri = process.env.REACT_APP_REDIRECT_URI_LOCAL || 'fart';
-    console.log('hello')
+    console.log(redirectUri);
     useEffect(() => {
         const code = new URLSearchParams(window.location.search).get('code');
       
@@ -45,7 +45,6 @@ const DestinyLogin = () => {
 
     const handleLogin = () => {
         window.location.href = `https://www.bungie.net/en/OAuth/Authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}`;
-        console.log(`https://www.bungie.net/en/OAuth/Authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}`);
     };
 
     if (accessToken) {
